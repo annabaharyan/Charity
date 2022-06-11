@@ -1,0 +1,744 @@
+                $colorOne:rgb(0, 206, 169);
+                $colorOne-1:rgb(10, 119, 99);
+                $colorTwo:rgb(65, 193, 235);
+                $colorThree:rgb(250, 172, 35);
+                $colorFour:rgb(203, 30, 132);
+                $colorFive:rgb(224, 120, 181);
+                $colorSix:rgb(0, 0, 0);
+                $colorSeven:rgb(255, 255, 255);
+                @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600&family=Prompt:wght@300&display=swap');
+                $fontText:'Prompt',
+                sans-serif;
+                $fontHeading:'Montserrat Alternates',
+                sans-serif;
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                
+                @mixin container1 {
+                    width: 100%;
+                    margin: 0 auto;
+                }
+                
+                @mixin container2 {
+                    max-width: 1237px;
+                    width: 100%;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                }
+                
+                @mixin container3 {
+                    max-width: 883px;
+                    width: 100%;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                }
+                
+                @mixin ul {
+                    font-family: $fontHeading;
+                    li {
+                        list-style: none;
+                        a {
+                            text-decoration: none
+                        }
+                    }
+                }
+                
+                @mixin title {
+                    font-family: $fontHeading;
+                    font-weight: 500;
+                    font-size: 42px;
+                    line-height: 50px;
+                    color: $colorSix;
+                    padding-top: 30px;
+                    text-align: center;
+                    @media (max-width: 1024px) {
+                        font-size: 30px;
+                        line-height: 36px;
+                    }
+                }
+                
+                @mixin paragraph {
+                    font-family: $fontText;
+                    font-weight: 300;
+                    font-size: 21px;
+                    line-height: 25px;
+                    color: $colorSix;
+                    @media (max-width: 1024px) {
+                        font-size: 14px;
+                    }
+                }
+                
+                @mixin lorems {
+                    height: 63px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 20px;
+                    font-size: 24px;
+                    margin: 15px 0 0 0;
+                    .sec2-p {
+                        @include paragraph();
+                        color: $colorSeven;
+                    }
+                    .plus {
+                        color: $colorSeven;
+                    }
+                    .minus {
+                        display: none;
+                        font-size: 21px;
+                        color: $colorSix;
+                    }
+                }
+                
+                @mixin openText {
+                    padding: 20px;
+                    color: $colorSeven;
+                    display: none;
+                }
+                
+                @mixin button {
+                    width: 167px;
+                    height: 50px;
+                    border: 1px solid $colorOne-1;
+                    border-radius: 25px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $colorOne;
+                    padding: 20px 15px;
+                    transition: transform 0.7s;
+                    button {
+                        width: 100%;
+                        border: none;
+                        background-color: transparent;
+                        color: $colorSeven;
+                        font-size: 16px;
+                        font-weight: 500;
+                        font-family: $fontHeading;
+                    }
+                    &:active {
+                        transform: scale(0.8);
+                    }
+                    @media (max-width:1104px) {
+                        width: 126px;
+                        height: 30px;
+                        button {
+                            font-size: 12px;
+                        }
+                    }
+                }
+                
+                @mixin adreessA {
+                    display: flex;
+                    align-items: center;
+                    @include paragraph();
+                    text-decoration: none;
+                }
+                
+                @mixin inputs {
+                    max-width: 197px;
+                    height: 55px;
+                    border: 2px inset $colorTwo;
+                    border-radius: 10px;
+                    @media (max-width: 1108px) {
+                        max-width: 622px;
+                    }
+                    @media (max-width: 425px) {
+                        height: 40px;
+                    }
+                }
+                
+                @mixin social-sizes {
+                    width: 29px;
+                    height: 29px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    i {
+                        color: $colorSeven;
+                    }
+                    color: $colorSeven;
+                    @media (max-width: 768px) {
+                        width: 20px;
+                        height: 20px;
+                        i {
+                            font-size: 10px;
+                        }
+                    }
+                }
+                
+                @mixin footer-terms {
+                    font-weight: 300;
+                    font-size: 14px;
+                    line-height: 17px;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    color: #838282;
+                    @media (max-width: 768px) {
+                        font-size: 12px;
+                    }
+                }
+                
+                header {
+                    @include container1();
+                    .top {
+                        width: 100%;
+                        display: flex;
+                        padding: 70px 100px;
+                        justify-content: space-between;
+                        align-items: center;
+                        .logo {
+                            max-width: 163px;
+                            width: 100%;
+                            a {
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                        .navigation {
+                            ul {
+                                display: flex;
+                                column-gap: 50px;
+                                @include ul();
+                                font-weight: 600;
+                                font-size: 20px;
+                                .nav-item {
+                                    text-align: center;
+                                    &:hover {
+                                        border-bottom: 2px solid $colorFour;
+                                        a {
+                                            color: $colorThree;
+                                            line-height: 35px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .header-btn {
+                            @include button();
+                        }
+                        @media (max-width:1104px) {
+                            flex-direction: column;
+                            padding: 37px 43px;
+                            .navigation {
+                                max-width: 1000px;
+                                width: 100%;
+                                ul {
+                                    padding: 30px 20px;
+                                    column-gap: 10px;
+                                    flex-wrap: wrap;
+                                    width: 100%;
+                                    justify-content: space-around;
+                                    @media (max-width: 600px) {
+                                        .nav-item {
+                                            a {
+                                                font-size: 12px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .heading {
+                        text-align: center;
+                        h1 {
+                            font-family: $fontHeading;
+                            font-weight: 600;
+                            color: $colorFour;
+                            text-transform: uppercase;
+                            font-size: 58px;
+                            padding: 0 20px;
+                            @media (max-width: 768px) {
+                                font-size: 45px;
+                            }
+                        }
+                    }
+                }
+                
+                .sec2 {
+                    @include container1();
+                    background: url(./images/background.png)no-repeat;
+                    background-size: cover;
+                    .sec2-1 {
+                        @include container2();
+                        padding-top: 10px;
+                        .title {
+                            h2 {
+                                @include title();
+                            }
+                        }
+                        .text-image-wrapper {
+                            margin-top: 45px;
+                            width: 100%;
+                            .row {
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                .image {
+                                    max-width: 581px;
+                                    width: 100%;
+                                    border-radius: 25px;
+                                    img {
+                                        width: 100%;
+                                        border-radius: 25px;
+                                    }
+                                }
+                                .txt {
+                                    max-width: 506px;
+                                    width: 100%;
+                                    padding: 25px 20px 20px 0;
+                                    p {
+                                        width: 100%;
+                                        @include paragraph();
+                                    }
+                                }
+                                @media (max-width:1152px) {
+                                    flex-direction: column;
+                                    align-items: center;
+                                    .txt {
+                                        max-width: 1024px;
+                                    }
+                                    .ordered {
+                                        order: -1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .sec2-2 {
+                        @include container3();
+                        .title {
+                            h2 {
+                                @include title();
+                                text-align: center;
+                            }
+                        }
+                        .lorems {
+                            width: 100%;
+                            .one {
+                                border: 1px solid $colorOne;
+                                background-color: $colorOne;
+                                background-color: $colorOne;
+                                color: $colorSeven;
+                                @include lorems();
+                            }
+                            .open-one {
+                                border: 1px solid $colorOne;
+                                @include paragraph();
+                                @include openText();
+                                background-color: $colorOne;
+                            }
+                            .two {
+                                border: 1px solid $colorTwo;
+                                background-color: $colorTwo;
+                                background-color: $colorTwo;
+                                color: $colorSeven;
+                                @include lorems();
+                            }
+                            .open-two {
+                                border: 1px solid $colorTwo;
+                                @include paragraph();
+                                @include openText();
+                                background-color: $colorTwo;
+                            }
+                            .three {
+                                border: 1px solid $colorThree;
+                                background-color: $colorThree;
+                                background-color: $colorThree;
+                                color: $colorSeven;
+                                @include lorems();
+                            }
+                            .open-three {
+                                border: 1px solid $colorThree;
+                                @include paragraph();
+                                @include openText();
+                                background-color: $colorThree;
+                            }
+                            .four {
+                                border: 1px solid $colorFour;
+                                background-color: $colorFour;
+                                background-color: $colorFour;
+                                color: $colorSeven;
+                                @include lorems();
+                            }
+                            .open-four {
+                                border: 1px solid $colorFour;
+                                background-color: $colorFour;
+                                @include paragraph();
+                                @include openText();
+                            }
+                        }
+                    }
+                }
+                
+                .sec3 {
+                    @include container2();
+                    h2 {
+                        @include title();
+                    }
+                    .images {
+                        width: 100%;
+                        margin-top: 40px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .image {
+                            max-width: 487px;
+                            width: 100%;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        .icon {
+                            i {
+                                font-size: 25px;
+                                color: $colorFour;
+                            }
+                            .fa-arrow-up {
+                                display: none;
+                            }
+                            .fa-arrow-down {
+                                display: none;
+                            }
+                        }
+                        @media (max-width:1112px) {
+                            flex-direction: column;
+                            row-gap: 15px;
+                            .icon {
+                                i {
+                                    font-size: 20px;
+                                }
+                                .fa-arrow-up {
+                                    display: block;
+                                }
+                                .fa-arrow-left {
+                                    display: none;
+                                }
+                                .fa-arrow-right {
+                                    display: none;
+                                }
+                                .fa-arrow-down {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                .sec4 {
+                    @include container3();
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .cycles {
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 40px;
+                        column-gap: 11px;
+                    }
+                    .cycle {
+                        width: 14px;
+                        height: 14px;
+                        border: 1px solid $colorTwo;
+                        border-radius: 50%;
+                    }
+                    .elips {
+                        width: 32px;
+                        height: 14px;
+                        border-radius: 25px;
+                        background-color: $colorThree;
+                    }
+                    .orange-div {
+                        width: 100%;
+                        margin: 60px 0;
+                        padding: 40px 85px;
+                        background-color: $colorThree;
+                        border-radius: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        p {
+                            padding-bottom: 25px;
+                            font-family: $fontHeading;
+                            font-weight: 500;
+                            font-size: 42px;
+                            line-height: 52px;
+                            text-align: center;
+                            color: $colorSeven;
+                            @media (max-width: 768px) {
+                                font-size: 25px;
+                                line-height: 35px;
+                            }
+                        }
+                        .btn-two {
+                            @include button();
+                            width: 294px;
+                        }
+                        @media (max-width: 768px) {
+                            padding: 24px 19px;
+                        }
+                    }
+                }
+                
+                .sec5 {
+                    @include container2();
+                    .title {
+                        h2 {
+                            @include title();
+                        }
+                    }
+                    .sec5-wrapper {
+                        margin: 40px 0 70px;
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        .sec5-col-one {
+                            max-width: 434px;
+                            width: 100%;
+                            .col-row-one {
+                                p {
+                                    @include paragraph();
+                                }
+                                .contacts {
+                                    div {
+                                        margin: 22px 0;
+                                        a {
+                                            @include adreessA();
+                                            img {
+                                                margin-right: 10px;
+                                                @media (max-width: 1024px) {
+                                                    width: 20px;
+                                                    height: 20px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .col-row-two {
+                                width: 100%;
+                                .request {
+                                    font-family: $fontHeading;
+                                    font-weight: 400;
+                                    font-size: 25px;
+                                    line-height: 30px;
+                                    color: $colorSix;
+                                }
+                                form {
+                                    width: 100%;
+                                    .inputs {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        padding: 25px 0;
+                                        input {
+                                            background-color: #FFFFFF;
+                                            padding: 0 10px;
+                                            font-size: 16px;
+                                            @include inputs();
+                                            @media (max-width: 768px) {
+                                                font-size: 14px;
+                                            }
+                                        }
+                                    }
+                                    .send-btn {
+                                        @include inputs();
+                                        color: $colorSeven;
+                                        background-color: $colorOne;
+                                        font-weight: 500;
+                                        font-size: 18px;
+                                        line-height: 50px;
+                                        padding: 0 34px;
+                                        transition: transform 0.7s;
+                                        &:active {
+                                            transform: scale(0.8);
+                                            background-color: $colorThree;
+                                            border: 1px solid $colorThree;
+                                        }
+                                        @media (max-width:425px) {
+                                            line-height: 38px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .sec5-col-two {
+                            max-width: 622px;
+                            border-radius: 25px;
+                            width: 100%;
+                            iframe {
+                                width: 100%;
+                                border-radius: 25px;
+                            }
+                        }
+                        @media (max-width:1108px) {
+                            flex-direction: column;
+                            .sec5-col-one {
+                                max-width: 1108px;
+                                width: 100%;
+                                p {
+                                    text-align: center;
+                                }
+                                .contacts {
+                                    display: flex;
+                                    justify-content: space-evenly;
+                                }
+                                .request {
+                                    text-align: center;
+                                }
+                                form {
+                                    text-align: center;
+                                    .inputs {
+                                        flex-direction: column;
+                                        align-items: center;
+                                        input {
+                                            width: 100%;
+                                            margin-bottom: 25px;
+                                        }
+                                    }
+                                    .send-btn {
+                                        margin-bottom: 30px;
+                                    }
+                                }
+                            }
+                            .sec5-col-two {
+                                margin: 0 auto;
+                                iframe {
+                                    max-width: 622px;
+                                    width: 100%;
+                                    height: 300px;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                .footer {
+                    @include container2();
+                    border-top: 0.5px solid $colorSix;
+                    .row-footer {
+                        padding: 30px 20px;
+                        display: flex;
+                        justify-content: space-between;
+                        .name-footer {
+                            max-width: 150px;
+                            img {
+                                width: 100%;
+                            }
+                            @media (max-width:768px) {
+                                max-width: 100px;
+                            }
+                        }
+                        .columns {
+                            ul {
+                                @include ul();
+                                display: flex;
+                                flex-direction: column;
+                                row-gap: 18px;
+                                li {
+                                    a {
+                                        color: $colorSix;
+                                        font-size: 14px;
+                                        @media (max-width: 768px) {
+                                            font-size: 12px;
+                                        }
+                                    }
+                                }
+                            }
+                            .contacts-footer {
+                                font-family: $fontHeading;
+                                font-weight: 500;
+                                font-size: 16px;
+                                @media (max-width: 768px) {
+                                    font-size: 12px;
+                                }
+                            }
+                            .contacts {
+                                div {
+                                    margin: 16px 0;
+                                    a {
+                                        @include adreessA();
+                                        font-size: 16px;
+                                        @media (max-width: 768px) {
+                                            font-size: 12px;
+                                        }
+                                        img {
+                                            width: 16px;
+                                            height: 16px;
+                                            margin-right: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                            .socials {
+                                margin-top: 26px;
+                                display: flex;
+                                justify-content: center;
+                                column-gap: 10px;
+                                .fb {
+                                    @include social-sizes();
+                                    background-color: $colorThree;
+                                }
+                                .twt {
+                                    @include social-sizes();
+                                    background-color: $colorTwo;
+                                }
+                                .insta {
+                                    @include social-sizes();
+                                    background-color: $colorFour;
+                                }
+                            }
+                        }
+                        @media (max-width:425px) {
+                            flex-direction: column;
+                            padding: 6px 0;
+                            .columns {
+                                .name-footer {
+                                    margin: 0 auto;
+                                }
+                                ul {
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                    margin: 12px 0;
+                                }
+                                .contacts-footer {
+                                    text-align: center;
+                                }
+                                .contacts {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    div {
+                                        margin: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .row-footer-two {
+                        padding-bottom: 30px;
+                        p {
+                            @include footer-terms;
+                        }
+                        span {
+                            margin-top: 10px;
+                            &:first-child {
+                                margin-right: 20px;
+                            }
+                            a {
+                                @include footer-terms;
+                                text-decoration: none;
+                            }
+                        }
+                        @media (max-width:425px) {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                    }
+                }
